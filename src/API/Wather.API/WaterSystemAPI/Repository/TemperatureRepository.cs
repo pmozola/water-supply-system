@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WaterSystemAPI.Models;
 
@@ -9,7 +10,41 @@ namespace WaterSystemAPI.Repository
         public TemperatureRepository()
         {
             _temperatureList = new List<Temperature>();
+
+            _temperatureList.Add(new Temperature
+            {
+                ArduinoId = 1,
+                Date = new DateTime(1988, 12, 28),
+                CelciusTemperature = 23,
+                Id = 1
+            });
+
+            _temperatureList.Add(new Temperature
+            {
+                ArduinoId = 1,
+                Date = new DateTime(1993, 11, 13),
+                CelciusTemperature = 42,
+                Id = 2
+            });
+
+            _temperatureList.Add(new Temperature
+            {
+                ArduinoId = 1,
+                Date = new DateTime(2004,5,25),
+                CelciusTemperature = 12,
+                Id = 3
+            });
+
+            _temperatureList.Add(new Temperature
+            {
+                ArduinoId = 1,
+                Date = new DateTime(2004, 8, 25),
+                CelciusTemperature = 1589,
+                Id = 4
+            });
+
         }
+    
 
         private readonly List<Temperature> _temperatureList;
 
@@ -19,19 +54,21 @@ namespace WaterSystemAPI.Repository
             _temperatureList.Add(temperature);
         }
 
-        public Temperature Get (int id)
+        public Temperature Get(int id)
 
         {
-         return   _temperatureList.FirstOrDefault(x => x.Id == id);
+            return _temperatureList.FirstOrDefault(x => x.Id == id);
         }
 
+        public List<Temperature> GetAll()
+        {
+            return _temperatureList;
 
-    }
+        }
 
-    public interface ITemperatureRepository
-    {
-        void Add(Temperature temperature);
-
-        Temperature Get(int id);
+        public List<Temperature> GetTemperatureByDate(DateTime date)
+        {
+            return _temperatureList.Where(x => x.Date.Date == date.Date).ToList();
+        }
     }
 }
