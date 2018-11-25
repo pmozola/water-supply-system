@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using WaterSystemAPI.Repository;
 
 namespace WaterSystemAPI
 {
@@ -21,6 +22,8 @@ namespace WaterSystemAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSingleton<ITemperatureRepository, TemperatureRepository>();
 
             services.AddSwaggerGen(c =>
             {

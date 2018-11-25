@@ -4,22 +4,34 @@ using WaterSystemAPI.Models;
 
 namespace WaterSystemAPI.Repository
 {
-    public class TemperatureRepository
+    public class TemperatureRepository : ITemperatureRepository
     {
-        private List<Temperature> TemperatureList;
-
-        void Add(Temperature temperature)
-
+        public TemperatureRepository()
         {
-            TemperatureList.Add(temperature);
+            _temperatureList = new List<Temperature>();
         }
 
-        Temperature Get (int id)
+        private readonly List<Temperature> _temperatureList;
+
+        public void Add(Temperature temperature)
 
         {
-         return   TemperatureList.FirstOrDefault(x => x.Id == id);
+            _temperatureList.Add(temperature);
+        }
+
+        public Temperature Get (int id)
+
+        {
+         return   _temperatureList.FirstOrDefault(x => x.Id == id);
         }
 
 
+    }
+
+    public interface ITemperatureRepository
+    {
+        void Add(Temperature temperature);
+
+        Temperature Get(int id);
     }
 }

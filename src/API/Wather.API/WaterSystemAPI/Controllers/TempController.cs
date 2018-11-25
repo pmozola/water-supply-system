@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WaterSystemAPI.Models;
+using WaterSystemAPI.Repository;
 
 namespace WaterSystemAPI.Controllers
 {
@@ -11,6 +12,13 @@ namespace WaterSystemAPI.Controllers
     [ApiController]
     public class TempController : ControllerBase
     {
+        private ITemperatureRepository _tempRepository;
+
+        public TempController(ITemperatureRepository temperatureRepository)
+        {
+            _tempRepository = temperatureRepository;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -22,8 +30,8 @@ namespace WaterSystemAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            Temperature temp = new Temperature();
-            
+            var temp = _tempRepository.Get(id);
+
             return Ok(temp);
         }
 
