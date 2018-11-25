@@ -47,7 +47,18 @@ namespace WaterSystemAPI.Controllers
             _tempRepository.Add(value);
 
         }
+        // GET api/values
+        [HttpGet("bydate")]
+        public ActionResult<IEnumerable<Temperature>> Get(DateTime date)
 
-      
+
+        {
+            var TemperatureList = _tempRepository.GetTemperatureByDate(date);
+            return Ok(TemperatureList);
+
+
+
+        }
+
     }
 }
