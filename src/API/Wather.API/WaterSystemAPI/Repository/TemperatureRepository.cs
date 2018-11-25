@@ -25,7 +25,11 @@ namespace WaterSystemAPI.Repository
          return   _temperatureList.FirstOrDefault(x => x.Id == id);
         }
 
+        public List<Temperature> GetAll()
+        {
+            return _temperatureList;
 
+        }
     }
 
     public interface ITemperatureRepository
@@ -33,5 +37,8 @@ namespace WaterSystemAPI.Repository
         void Add(Temperature temperature);
 
         Temperature Get(int id);
+
+        List<Temperature> GetAll();
+
     }
 }

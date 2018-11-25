@@ -21,9 +21,14 @@ namespace WaterSystemAPI.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Temperature>> Get()
+
         {
-            return new string[] { "trhftrjf", "value2" };
+            var TemperatureList = _tempRepository.GetAll();
+            return Ok(TemperatureList);
+
+            
+
         }
 
         // GET api/values/5
@@ -39,6 +44,8 @@ namespace WaterSystemAPI.Controllers
         [HttpPost]
         public void Post([FromBody] Temperature value)
         {
+            _tempRepository.Add(value);
+
         }
 
       
