@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule, MatCardModule } from '@angular/material';
+import { AppMatModuleModule } from './shared/modules/app-mat-module/app-mat-module.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,7 @@ import { MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule } fr
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-     MatToolbarModule
+    AppMatModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
