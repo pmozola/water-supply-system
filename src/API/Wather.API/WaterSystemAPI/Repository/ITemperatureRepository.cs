@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using WaterSystemAPI.Models;
 
 namespace WaterSystemAPI.Repository
@@ -13,8 +14,5 @@ namespace WaterSystemAPI.Repository
         List<Temperature> GetAll();
 
         List<Temperature> GetTemperatureByDate(DateTime date);
-
-
-
     }
 }

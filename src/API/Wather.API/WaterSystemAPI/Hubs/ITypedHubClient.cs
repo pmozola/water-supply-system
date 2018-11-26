@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using WaterSystemAPI.Models;
+using WaterSystemAPI.Controllers;
 
 namespace WaterSystemAPI.Hubs
 {
     public interface ITypedHubClient
     {
-        Task BroadcastMessage(Temperature currentTemperature);
+        Task BroadcastMessage(Measurement currentTemperature);
     }
 }

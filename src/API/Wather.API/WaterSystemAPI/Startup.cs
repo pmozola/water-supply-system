@@ -34,6 +34,7 @@ namespace WaterSystemAPI
             }));
 
             services.AddSingleton<ITemperatureRepository, TemperatureRepository>();
+            services.AddSingleton<IMeasurementRepository, FakeMeasurementRepository>();
 
             services.AddSwaggerGen(c =>
             {
