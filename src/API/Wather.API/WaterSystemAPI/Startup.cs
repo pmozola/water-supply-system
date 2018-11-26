@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using WaterSystemAPI.Hubs;
 using WaterSystemAPI.Repository;
 
 namespace WaterSystemAPI
@@ -23,12 +24,23 @@ namespace WaterSystemAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowAnyOrigin()
+                    .AllowCredentials();
+            }));
+
             services.AddSingleton<ITemperatureRepository, TemperatureRepository>();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = this.apiName, Version = "v1" });
             });
+
+            services.AddSignalR();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -37,12 +49,15 @@ namespace WaterSystemAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", this.apiName);
             });
+
+            app.UseCors("CorsPolicy");
+
+            app.UseSignalR(routes => { routes.MapHub<NotifyHub>("/notify"); });
             
             app.UseMvc();
         }
