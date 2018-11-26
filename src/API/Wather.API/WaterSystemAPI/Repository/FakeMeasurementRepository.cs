@@ -18,5 +18,10 @@ namespace WaterSystemAPI.Repository
         {
             this.database.Add(measurement);
         }
+
+        public IEnumerable<Measurement> GetCurrentMeasurement(int arduinoId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
