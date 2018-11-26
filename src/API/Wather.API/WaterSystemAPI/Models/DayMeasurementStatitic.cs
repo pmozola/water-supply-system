@@ -3,7 +3,11 @@
     public class DayMeasurementStatitic
     {
         public DayStatistic DayTemperatureStatistic { get; set; }
+
         public DayStatistic DayHumidityStatistic { get; set; }
+
         public DayStatistic DaySoilHumidityStatistic { get; set; }
+
+        public DayStatistic DayLightIntensityStatistic { get; set; }
     }
 }

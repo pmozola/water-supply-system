@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WaterSystemAPI.Models;
 using WaterSystemAPI.Repository;
 
@@ -11,16 +8,17 @@ namespace WaterSystemAPI.Controllers
     [ApiController]
     public class StatisticController : ControllerBase
     {
+        public readonly IMeasurementRepository MeasurementRepository;
 
-        public StatisticController(ITemperatureRepository temperatureRepository)
+        public StatisticController(IMeasurementRepository measurementRepository)
         {
+            this.MeasurementRepository = measurementRepository;
         }
 
-        // GET api/statistic/day
-        [HttpGet("day")]
-        public ActionResult<IEnumerable<Temperature>> Get(DateTime? date)
+        [HttpGet]
+        public ActionResult<DayMeasurementStatitic> Get(int arduinoId)
         {
-            return this.Ok();
+            return this.Ok(this.MeasurementRepository.GetStatisticForDay(arduinoId));
         }
     }
 }

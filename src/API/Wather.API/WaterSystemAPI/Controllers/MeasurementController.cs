@@ -9,12 +9,12 @@ namespace WaterSystemAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TempController : ControllerBase
+    public class MeasurementController : ControllerBase
     {
         private readonly IMeasurementRepository repository;
         private readonly IHubContext<NotifyHub, ITypedHubClient> hubContext;
 
-        public TempController(
+        public MeasurementController(
             IMeasurementRepository repository,
             IHubContext<NotifyHub, ITypedHubClient> hubContext)
         {
