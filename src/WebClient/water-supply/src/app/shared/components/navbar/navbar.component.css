@@ -1,0 +1,21 @@
+.companyName{
+  font-size: 150%;
+}
+div {
+  overflow: inherit;
+}
+a{
+  text-decoration: none;
+  white-space: normal;
+}
+button{
+  min-width: min-content;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.mat-sidenav-content{
+    font-size: 200%;
+    text-align: center;
+}

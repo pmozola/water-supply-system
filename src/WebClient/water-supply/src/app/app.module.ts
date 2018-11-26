@@ -4,17 +4,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {MatButtonModule} from '@angular/material/button';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+     MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
