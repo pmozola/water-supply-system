@@ -1,0 +1,7 @@
+.homePageContainer {
+  display: flex;
+}
+
+.homePageRow {
+  flex: 50%;
+}

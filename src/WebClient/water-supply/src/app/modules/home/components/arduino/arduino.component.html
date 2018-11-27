@@ -1,0 +1,7 @@
+<h2>
+  Roslinka {{arduinoId}}
+</h2>
+<div *ngFor="let measureCard of measureCardModel">
+  <app-current-measurement [measureCardModel]="measureCard"></app-current-measurement>
+</div>
+

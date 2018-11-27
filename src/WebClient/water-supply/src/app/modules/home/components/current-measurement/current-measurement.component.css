@@ -1,0 +1,8 @@
+.measuremnent-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://cdn2.iconfinder.com/data/icons/lovely-weather-icons/32/Thermometer-100-512.png');
+  background-size: cover;
+}

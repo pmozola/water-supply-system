@@ -11,7 +11,7 @@ namespace WaterSystemAPI.Repository
     {
         public FakeMeasurementRepository()
         {
-            this.database = new List<Measurement>();
+            this.database = PrepareFakeData();
         }
 
         private readonly IList<Measurement> database;
@@ -21,9 +21,12 @@ namespace WaterSystemAPI.Repository
             this.database.Add(measurement);
         }
 
-        public IEnumerable<Measurement> GetCurrentMeasurement(int arduinoId)
+        public Measurement GetCurrentMeasurement(int arduinoId)
         {
-            throw new System.NotImplementedException();
+            return this.database
+                .Where(x => x.ArduinoId == arduinoId)
+                .OrderByDescending(x => x.Date)
+                .FirstOrDefault();
         }
 
         public DayMeasurementStatitic GetStatisticForDay(int arduinoId)
@@ -60,6 +63,15 @@ namespace WaterSystemAPI.Repository
                     Min = measurementForArduino.Min(x => x.LightIntensity),
                     Average = measurementForArduino.Average(x => x.LightIntensity)
                 }
+            };
+        }
+
+        private static List<Measurement> PrepareFakeData()
+        {
+            return  new List<Measurement>
+            {
+                new Measurement {ArduinoId = 1, Temperature = 12, Humidity = 134, SoilHumidity = 13, LightIntensity = 123 },
+                new Measurement {ArduinoId = 2, Temperature = 23, Humidity = 13, SoilHumidity = 3, LightIntensity = 23 }
             };
         }
     }

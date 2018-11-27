@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-using WaterSystemAPI.Controllers;
+﻿using WaterSystemAPI.Controllers;
 using WaterSystemAPI.Models;
 
 namespace WaterSystemAPI.Repository
@@ -9,7 +7,7 @@ namespace WaterSystemAPI.Repository
     {
         void Save(Measurement measurement);
 
-        IEnumerable<Measurement> GetCurrentMeasurement(int arduinoId);
+        Measurement GetCurrentMeasurement(int arduinoId);
 
         DayMeasurementStatitic GetStatisticForDay(int arduinoId);
     }

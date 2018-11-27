@@ -31,7 +31,7 @@ namespace WaterSystemAPI.Controllers
         }
 
         [HttpGet("latest/{arduinoId:int}")]
-        public ActionResult<IEnumerable<Measurement>> Get(int arduinoId)
+        public ActionResult<Measurement> Get(int arduinoId)
         {
             return this.Ok(this.repository.GetCurrentMeasurement(arduinoId));
         }
