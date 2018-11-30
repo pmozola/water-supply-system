@@ -15,7 +15,7 @@ namespace WaterSystemAPI.Controllers
             this.MeasurementRepository = measurementRepository;
         }
 
-        [HttpGet]
+        [HttpGet("{arduinoId}")]
         public ActionResult<DayMeasurementStatitic> Get(int arduinoId)
         {
             return this.Ok(this.MeasurementRepository.GetStatisticForDay(arduinoId));

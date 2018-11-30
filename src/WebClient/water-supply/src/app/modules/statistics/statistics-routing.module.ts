@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DayComponent } from './pages/day/day.component';
 
 const routes: Routes = [
-  { path: 'day', component: DayComponent }
+  { path: 'day/:id', component: DayComponent }
 ];
 
 @NgModule({

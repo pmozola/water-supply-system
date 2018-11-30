@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MeasureCardModel } from 'src/app/shared/models/measure-card-model';
 
 @Component({
   selector: 'app-current-measurement',

@@ -1,5 +1,5 @@
-interface MeasureCardModel {
-    name: string;
-    data: number;
-    arduinoId: number;
-  }
+export interface MeasureCardModel {
+  name: string;
+  data: number;
+  arduinoId: number;
+}

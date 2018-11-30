@@ -1,7 +1,7 @@
 <p>Statystyki z aktualnego dnia z konkretnego arduino</p>
 <div class="flex-row-container">
-  <app-measurement-statistic [name]="'Temperatura'" class="flex-row-item"></app-measurement-statistic>
-  <app-measurement-statistic [name]="'Wilgotość'" class="flex-row-item"></app-measurement-statistic>
-  <app-measurement-statistic [name]="'Wilgotnosc ziemi'" class="flex-row-item"></app-measurement-statistic>
-  <app-measurement-statistic [name]="'Natezenie swiatla'" class="flex-row-item"></app-measurement-statistic>
+  <app-measurement-statistic *ngIf="temperatureCard" [model]="temperatureCard" class="flex-row-item"></app-measurement-statistic>
+  <app-measurement-statistic *ngIf="humidityCard" [model]="humidityCard" class="flex-row-item"></app-measurement-statistic>
+  <app-measurement-statistic *ngIf="soileCard" [model]="soileCard" class="flex-row-item"></app-measurement-statistic>
+  <app-measurement-statistic *ngIf="lightCard" [model]="lightCard" class="flex-row-item"></app-measurement-statistic>
 </div>

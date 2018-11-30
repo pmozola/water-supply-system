@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -34,6 +35,12 @@ namespace WaterSystemAPI.Controllers
         public ActionResult<Measurement> Get(int arduinoId)
         {
             return this.Ok(this.repository.GetCurrentMeasurement(arduinoId));
+        }
+
+        [HttpGet("latest/log/{arduinoId}")]
+        public ActionResult<List<Measurement>> GetLog(int arduinoId)
+        {
+            return this.Ok(this.repository.GetLogForDay(arduinoId, DateTime.Now));
         }
     }
 }

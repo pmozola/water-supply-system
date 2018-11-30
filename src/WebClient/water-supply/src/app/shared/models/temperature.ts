@@ -1,4 +1,4 @@
-interface Temperature {
+export interface Temperature {
   id: number;
   date: string;
   celciusTemperature: number;

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { SignalRHubService } from 'src/app/shared/services/signalr-hub.service';
 import { HubConnection } from '@aspnet/signalr';
+import { MeasureCardModel } from 'src/app/shared/models/measure-card-model';
+import { Measurement } from 'src/app/shared/models/measurement';
 
 @Component({
   selector: 'app-arduino',

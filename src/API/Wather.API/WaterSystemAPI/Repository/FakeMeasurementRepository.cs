@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading;
 using WaterSystemAPI.Controllers;
 using WaterSystemAPI.Models;
 
@@ -66,12 +66,30 @@ namespace WaterSystemAPI.Repository
             };
         }
 
+        public List<Measurement> GetLogForDay(int arduinoId, DateTime day)
+        {
+            return this.database
+                .Where(x => x.ArduinoId == arduinoId && x.Date.Date == day.Date)
+                .ToList();
+        }
+
         private static List<Measurement> PrepareFakeData()
         {
             return  new List<Measurement>
             {
-                new Measurement {ArduinoId = 1, Temperature = 12, Humidity = 134, SoilHumidity = 13, LightIntensity = 123 },
-                new Measurement {ArduinoId = 2, Temperature = 23, Humidity = 13, SoilHumidity = 3, LightIntensity = 23 }
+                // arduino1
+                new Measurement {ArduinoId = 1, Temperature = 4, Humidity = 14, SoilHumidity = 13, LightIntensity = 123 },
+                new Measurement {ArduinoId = 1, Temperature = 5, Humidity = 24, SoilHumidity = 13, LightIntensity = 123 },
+                new Measurement {ArduinoId = 1, Temperature = 6, Humidity = 34, SoilHumidity = 13, LightIntensity = 123 },
+                new Measurement {ArduinoId = 1, Temperature = 7, Humidity = 54, SoilHumidity = 13, LightIntensity = 123 },
+                new Measurement {ArduinoId = 1, Temperature = 12, Humidity = 64, SoilHumidity = 13, LightIntensity = 123 },
+
+                // arduino2
+                new Measurement {ArduinoId = 2, Temperature = 23, Humidity = 7, SoilHumidity = 3, LightIntensity = 23 },
+                new Measurement {ArduinoId = 2, Temperature = 21, Humidity = 45, SoilHumidity = 3, LightIntensity = 23 },
+                new Measurement {ArduinoId = 2, Temperature = 13, Humidity = 33, SoilHumidity = 3, LightIntensity = 23 },
+                new Measurement {ArduinoId = 2, Temperature = 2, Humidity = 33, SoilHumidity = 3, LightIntensity = 23 },
+            new Measurement {ArduinoId = 2, Temperature = 5 , Humidity = 53, SoilHumidity = 3, LightIntensity = 23 }
             };
         }
     }

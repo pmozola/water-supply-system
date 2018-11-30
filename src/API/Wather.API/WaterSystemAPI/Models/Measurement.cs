@@ -7,6 +7,9 @@ namespace WaterSystemAPI.Controllers
         public Measurement()
         {
             Date = DateTime.Now;
+
+            //FOR test only 
+            new TimeSpan(0, 0, 0, 1);
         }
 
         public int ArduinoId  { get; set; }
