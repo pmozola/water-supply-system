@@ -1,7 +1,9 @@
-<h2>
-  Roslinka {{arduinoId}}
-</h2>
-<div *ngFor="let measureCard of measureCardModel">
-  <app-current-measurement [measureCardModel]="measureCard"></app-current-measurement>
+<h2>Roslinka {{ arduinoId }}</h2>
+<div class="flex-row-container">
+  <div class="flex-row-item" *ngFor="let measureCard of measureCardModel">
+    <app-current-measurement
+      [measureCardModel]="measureCard"
+    ></app-current-measurement>
+  </div>
 </div>
-
+<button mat-raised-button color="accent">Statystyki</button>
