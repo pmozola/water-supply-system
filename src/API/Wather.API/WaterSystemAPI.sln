@@ -3,13 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterSystemAPI", "WaterSystemAPI\WaterSystemAPI.csproj", "{E974FCB5-7B57-460E-9BCD-07057C414E7D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceBus", "..\..\BackendShared\ServiceBus\ServiceBus.csproj", "{AAAF613D-0B46-4F97-B124-92F2F621C688}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceBus.RabbitMQ", "..\..\BackendShared\ServiceBus.RabbitMQ\ServiceBus.RabbitMQ.csproj", "{F40ABE72-BD46-45EB-9BDC-AE9D2DE1F0D6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterSystem.Messages", "..\..\BackendShared\WaterSystem.Messages\WaterSystem.Messages.csproj", "{1DDD1D96-5F78-4ADF-A913-3BEA9EEF4D05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterSystemAPI", "WaterSystemAPI\WaterSystemAPI.csproj", "{E974FCB5-7B57-460E-9BCD-07057C414E7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +15,6 @@ Global
 		{E974FCB5-7B57-460E-9BCD-07057C414E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E974FCB5-7B57-460E-9BCD-07057C414E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E974FCB5-7B57-460E-9BCD-07057C414E7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAAF613D-0B46-4F97-B124-92F2F621C688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAAF613D-0B46-4F97-B124-92F2F621C688}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAAF613D-0B46-4F97-B124-92F2F621C688}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAAF613D-0B46-4F97-B124-92F2F621C688}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F40ABE72-BD46-45EB-9BDC-AE9D2DE1F0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F40ABE72-BD46-45EB-9BDC-AE9D2DE1F0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F40ABE72-BD46-45EB-9BDC-AE9D2DE1F0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F40ABE72-BD46-45EB-9BDC-AE9D2DE1F0D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DDD1D96-5F78-4ADF-A913-3BEA9EEF4D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DDD1D96-5F78-4ADF-A913-3BEA9EEF4D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DDD1D96-5F78-4ADF-A913-3BEA9EEF4D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DDD1D96-5F78-4ADF-A913-3BEA9EEF4D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

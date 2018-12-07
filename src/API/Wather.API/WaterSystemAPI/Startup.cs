@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ServiceBus.Interfaces;
-using ServiceBus.RabbitMQ;
 using Swashbuckle.AspNetCore.Swagger;
 using WaterSystemAPI.Hubs;
 using WaterSystemAPI.Repository;
@@ -43,9 +41,6 @@ namespace WaterSystemAPI
             });
 
             services.AddSignalR();
-           // services.AddTransient<IIntegrationEventBusPublisher, RabbitMqEventBusPublisher>();
-
-            //services.AddRabbitMq(this.Configuration.GetSection("rabbit"));
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
