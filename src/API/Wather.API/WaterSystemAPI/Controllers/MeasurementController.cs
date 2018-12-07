@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using ServiceBus.Interfaces;
+using WaterSystem.Messages;
 using WaterSystemAPI.Hubs;
 using WaterSystemAPI.Repository;
 
@@ -14,20 +16,24 @@ namespace WaterSystemAPI.Controllers
     {
         private readonly IMeasurementRepository repository;
         private readonly IHubContext<NotifyHub, ITypedHubClient> hubContext;
+        private readonly IIntegrationEventBusPublisher eventBus;
 
         public MeasurementController(
             IMeasurementRepository repository,
-            IHubContext<NotifyHub, ITypedHubClient> hubContext)
+            IHubContext<NotifyHub, ITypedHubClient> hubContext,
+            IIntegrationEventBusPublisher eventBus)
         {
             this.repository = repository;
             this.hubContext = hubContext;
+            this.eventBus = eventBus;
         }
 
         [HttpPost]
         public void Post([FromBody] Measurement value)
         {
             this.repository.Save(value);
-
+            
+            this.eventBus.Publish(new AlarmingMeasurementNoticedEvent{ArduinoId = 1, Value = 123});
             this.hubContext.Clients.All.BroadcastMessage(value);
         }
 

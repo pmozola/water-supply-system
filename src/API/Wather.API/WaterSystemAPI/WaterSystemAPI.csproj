@@ -18,4 +18,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BackendShared\ServiceBus.RabbitMQ\ServiceBus.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\..\BackendShared\WaterSystem.Messages\WaterSystem.Messages.csproj" />
+  </ItemGroup>
+
 </Project>
