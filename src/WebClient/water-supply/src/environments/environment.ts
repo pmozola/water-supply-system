@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:49313/',
+  apiUrl: 'https://watersystem.azurewebsites.net/',
 };
 
 /*
